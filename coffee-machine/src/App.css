@@ -1,5 +1,8 @@
 .App {
 	text-align: center;
+	background-color: black;
+	color: #f0f0f0;
+	height: 100vh;
 }
 
 .App-logo {
@@ -95,6 +98,28 @@
 	border-radius: 60px;
 }
 
+.menu {
+	display: flex;
+	justify-content: center;
+}
+
+.function-button-parent {
+	display: flex;
+	flex-direction: column;
+	width: 80px;
+	justify-content: center;
+	border: 3px double gray;
+	margin: 5px 3px;
+}
+
+.function-button {
+	height: 15px;
+	width: 15px;
+	border-radius: 15px;
+	margin: auto;
+	background-color: brown;
+}
+
 .remaining {
 	display: flex;
 	justify-content: center;
@@ -111,7 +136,7 @@
 	width: 40px;
 	margin: 15px 20px 10px;
 	position: absolute;
-	background-color: white;
+	background-color: #282c34;
 	border: 0.1px solid #61dafb;
 }
 
@@ -134,7 +159,7 @@
 	width: 40px;
 	margin: 15px 20px 10px;
 	position: absolute;
-	background-color: white;
+	background-color: #282c34;
 	border: 0.1px solid grey;
 }
 
@@ -153,7 +178,7 @@
 	width: 40px;
 	margin: 15px 20px 10px;
 	position: absolute;
-	background-color: white;
+	background-color: #282c34;
 	border: 0.1px solid grey;
 }
 
@@ -167,10 +192,36 @@
 }
 
 .remaining-disposable-cup-image {
-	margin: 15px auto 10px;
+	margin-top: 21px;
 	height: 55px;
 }
 
-.remaining-label-disposable-cup {
-	/* margin-top: -15px; */
+.fill-button {
+	width: 40px;
+	height: 20px;
+	border: 1px solid #f0f0f0;
+	margin: auto;
+	content: "Fill";
+}
+
+.animation-fill-button {
+	width: 40px;
+	height: 20px;
+	background-color: black;
+	border-color: 1px solid #f0f0f0;
+	animation-name: example;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	margin: auto;
+}
+
+@keyframes example {
+	from {
+		background-color: black;
+		content: "Fill";
+	}
+	to {
+		background-color: green;
+		content: "&#10004;";
+	}
 }
