@@ -2,60 +2,22 @@ import coffeeCup from "./giphy.gif";
 import "./App.css";
 import Remaining from "./components/remaining";
 import { useState, useEffect } from "react";
-import FunctionButton from "./components/function-button";
-import Fill from "./components/fill";
 import Buy from "./components/Buy";
-
-/*
-class Ingredients {
-	int water;
-	int milk;
-	int coffee;
-	int disposables;
-}
- */
+import adminIcon from "./admin_panel_settings.svg";
+import Invoice from "./components/Invoice";
 
 function App() {
 	useEffect(() => {
 		document.title = "Coffee Machine";
 	}, []);
 
-	// const [ingredients, setIngredients] = useState([
-	// 	{ name: "water", quantity: 700, isFilled: false },
-	// 	{ name: "milk", quantity: 465, isFilled: false },
-	// 	{ name: "beans", quantity: 300, isFilled: false },
-	// 	{ name: "disposable", quantity: 80, isFilled: false },
-	// ]);
-
-	const [ingredients, setIngredients] = useState({
-		water: 1000,
-		milk: 1000,
-		coffee: 1000,
-		cups: 250,
-	});
-
 	const [selectedFunction, setSelectedFunction] = useState("");
 
-	// function fillIngredients(ingredient) {
-	// 	console.log(ingredient);
-	// 	setIngredients((oldArray) => {
-	// 		let newArray = [];
-	// 		for (let i = 0; i < oldArray.length; i++) {
-	// 			if (oldArray[i].name === ingredient.name) {
-	// 				var newIngredient = {
-	// 					name: ingredient.name,
-	// 					quantity: 1000,
-	// 					isFilled: true,
-	// 				};
-	// 				newArray.push(newIngredient);
-	// 			} else newArray.push(oldArray[i]);
-	// 		}
-	// 		return newArray;
-	// 	});
-	// }
+	const [selectedCoffee, setSelectedCoffee] = useState(null);
 
-	function fillIngredients(ingredients) {
-		setIngredients(ingredients);
+	function selectCoffee(coffee) {
+		console.log(coffee);
+		setSelectedFunction("Invoice");
 	}
 
 	return (
@@ -84,49 +46,21 @@ function App() {
 					</button>
 				</div>
 			)}
-			{selectedFunction === "Buy" && <Buy />}
-			{selectedFunction === "Remaining" && (
-				<Remaining
-					fillIngredients={fillIngredients}
-					ingredients={ingredients}
-					// water={ingredients[0]}
-					// milk={ingredients[1]}
-					// disposableCups={ingredients[2]}
-					// beans={ingredients[3]}
-				></Remaining>
-			)}
-			<div className="menu">
-				<div
-					className="function-button-parent"
-					onClick={() => setSelectedFunction("Remaining")}
-				>
-					<button
-						className="function-button"
-						style={{
-							backgroundColor:
-								selectedFunction === "Remaining"
-									? "#F0F0F0"
-									: "brown",
-						}}
-					/>
-					Remaining
-				</div>
-				<div
-					className="function-button-parent"
-					onClick={() => setSelectedFunction("Take")}
-				>
-					<button
-						className="function-button"
-						style={{
-							backgroundColor:
-								selectedFunction === "Take"
-									? "#F0F0F0"
-									: "brown",
-						}}
-					/>
-					Take
-				</div>
-			</div>
+			{selectedFunction === "Buy" && <Buy selectCoffee={selectCoffee} />}
+			{selectedFunction === "Invoice" && <Invoice />}
+			<button
+				style={{
+					border: "1px solid skyblue",
+					background: "grey",
+					color: "white",
+					// position: "fixed",
+					// bottom: "10px",
+					// width: "100px",
+					margin: "auto",
+				}}
+			>
+				<img src={adminIcon} height="20px" /> Admin
+			</button>
 		</div>
 	);
 }
