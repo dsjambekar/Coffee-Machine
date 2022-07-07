@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+
 .App {
 	text-align: center;
 	background-color: black;
@@ -98,9 +100,19 @@
 	border-radius: 60px;
 }
 
+.buy-a-coffee {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px auto;
+}
+
 .menu {
 	display: flex;
 	justify-content: center;
+	position: fixed;
+	bottom: 0;
+	width: 100%;
 }
 
 .function-button-parent {
@@ -224,4 +236,90 @@
 		background-color: green;
 		content: "&#10004;";
 	}
+}
+
+.buy-choice {
+	/* display: flex;
+	flex-direction: column;
+	justify-content: space-around; */
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 35%;
+	padding-top: 10px;
+}
+
+.coffee-choice {
+	height: 80px;
+	/* width: 80px; */
+	margin: 5px;
+	border: 1px solid gray;
+	display: flex;
+}
+
+.coffee-choice:hover {
+	box-shadow: 0 0 11px white;
+}
+
+.coffee-choice img {
+	margin: 5px;
+	/* height: 60px; */
+}
+
+.coffee-choice h1 {
+	font-family: "Amatic SC", cursive;
+	margin-left: 10px;
+}
+
+.coffee-choice-cost {
+	font-family: "Comic Sans MS", "Comic Sans", cursive;
+	font-size: 2em;
+	margin: 10px 0;
+}
+
+.coffee-choice-cost sup {
+	font-size: initial;
+}
+
+.list-usp {
+	animation: fadein 24s ease-in-out forwards;
+	left: 0px;
+	margin: auto;
+	opacity: 0;
+	padding: 7px 0px;
+	/* position: absolute; */
+	right: 0px;
+	text-align: center;
+	width: 100%;
+}
+
+.animate:nth-of-type(2) {
+	animation-delay: 1s;
+}
+
+.animate:nth-of-type(3) {
+	animation-delay: 2s;
+}
+
+.animate:nth-of-type(4) {
+	animation-delay: 3s;
+}
+
+.animate:nth-of-type(4) {
+	animation-delay: 4s;
+}
+
+/* Standard syntax */
+@keyframes fadein {
+	from {
+		opacity: 0;
+	}
+
+	1% {
+		opacity: 1;
+	}
+
+	/* 25% {
+		opacity: 0;
+	} */
 }
