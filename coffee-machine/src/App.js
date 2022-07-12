@@ -1,6 +1,5 @@
 import coffeeCup from "./giphy.gif";
 import "./App.css";
-import Remaining from "./components/remaining";
 import { useState, useEffect } from "react";
 import Buy from "./components/Buy";
 import adminIcon from "./admin_panel_settings.svg";
@@ -14,9 +13,12 @@ function App() {
 	const [selectedFunction, setSelectedFunction] = useState("");
 
 	const [selectedCoffee, setSelectedCoffee] = useState(null);
+	const [coffeePrice, setCoffeePrice] = useState(null);
 
-	function selectCoffee(coffee) {
+	function selectCoffee(coffee, price) {
 		console.log(coffee);
+		setSelectedCoffee(coffee);
+		setCoffeePrice(price);
 		setSelectedFunction("Invoice");
 	}
 
@@ -47,8 +49,10 @@ function App() {
 				</div>
 			)}
 			{selectedFunction === "Buy" && <Buy selectCoffee={selectCoffee} />}
-			{selectedFunction === "Invoice" && <Invoice />}
-			<button
+			{selectedFunction === "Invoice" && (
+				<Invoice coffee={selectedCoffee} price={coffeePrice} />
+			)}
+			{/* <button
 				style={{
 					border: "1px solid skyblue",
 					background: "grey",
@@ -60,7 +64,7 @@ function App() {
 				}}
 			>
 				<img src={adminIcon} height="20px" /> Admin
-			</button>
+			</button> */}
 		</div>
 	);
 }

@@ -12,9 +12,9 @@ export default function Invoice(props) {
 						<th>COST</th>
 					</tr>
 					<tr>
-						<td>Cappuccino</td>
+						<td>{props.coffee}</td>
 						<td>1</td>
-						<td>$6</td>
+						<td>${props.price}</td>
 					</tr>
 				</table>
 				<div>Thank you for your visit.</div>
